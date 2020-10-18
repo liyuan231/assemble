@@ -140,7 +140,7 @@ code segment
         jmp exit;
 
     exit:
-        call printNumbers;完成扩展2
+        ;call printNumbers;完成扩展2
         mov ah,4ch
         int 21h;
 

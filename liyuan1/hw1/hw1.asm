@@ -33,8 +33,8 @@ code segment
         mov ax,data;
         mov ds,ax;
 
-        mov dx,offset menu;
-        call disp;
+        ;mov dx,offset menu;
+        ;call disp;
 
         mov cx,0;
         mov cx,count;字符串长度
@@ -114,16 +114,17 @@ code segment
             ;此时 numOfCap,numOfLow,numOfNum分别存储相应的长度
 
             ;call printNumbers;我移到了exit处
-            mov ah,08h;
-            int 21h;
+            ;mov ah,08h;
+            ;int 21h;
             ;call printEnter;
             ;mov al,[choise];此处有个bug，但我不想改正 TODO
-            cmp al,'1';
-                je printNum;
-            cmp al,'2';
-                je printLow;
-            cmp al,'3';
-                je printCap;
+            ;cmp al,'1';
+            ;    je printNum;
+            ;cmp al,'2';
+            ;    je printLow;
+            ;cmp al,'3';
+            ;    je printCap;
+            jmp printNum;
             jmp exit;
 
     printNum:
@@ -140,7 +141,7 @@ code segment
         jmp exit;
 
     exit:
-        call printNumbers;完成扩展2
+        ;call printNumbers;完成扩展2
         mov ah,4ch
         int 21h;
 
