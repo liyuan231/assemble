@@ -27,7 +27,7 @@ code segment
         inc bx;
 
         call isNeg;
-        ;不是负数说明剩下的是0或整数
+        ;不是负数说明剩下的是0或正数
         add al,30h;
         call isZero;
         call isPos;
@@ -56,6 +56,7 @@ code segment
         cmp al,30h;
             je countZero;
         ret;
+       ;对于正数的判断还需额外考虑如 0001 0000 这种情况
     isPos:
         cmp al,30h;
             ja aboveZero;
